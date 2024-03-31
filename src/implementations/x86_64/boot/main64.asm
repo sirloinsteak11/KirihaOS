@@ -1,4 +1,4 @@
-global long_mode_start
+global long_mode_start, kb_input
 extern kernel_main
 
 section .text
@@ -13,5 +13,12 @@ long_mode_start:
     mov gs, ax
 
     call kernel_main
-
+    call kb_input
     hlt
+
+kb_input:
+    mov ah, 0
+    int 0x16
+    mov [kb_input], al
+
+    

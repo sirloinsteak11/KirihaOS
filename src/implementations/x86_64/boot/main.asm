@@ -18,8 +18,7 @@ start:
 	lgdt [gdt64.pointer]
 	jmp gdt64.code_segment:long_mode_start
 
-	;print 'OK' by writing directly to 'video memory' which begins at 0xb8000
-	mov dword [0xb8000], 0x2f4fa45d
+	
 	hlt
 
 check_multiboot:
